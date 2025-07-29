@@ -1,0 +1,56 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Projects</h2>
+      <p class="section-subtitle">Some of my recent work</p>
+    </div>
+    
+    <!-- Category Filter -->
+    <div class="category-filter">
+      <div class="filter-buttons">
+        @for (category of categories; track category) {
+          <button 
+            class="filter-btn" 
+            [class.active]="selectedCategory === category"
+            (click)="onCategoryChange(category)">
+            {{ category }}
+          </button> 
+        }
+      </div>
+    </div>
+    
+    <div class="projects-grid">
+      @for (project of filteredProjects; track project.id) {
+        <div class="project-card" (click)="onProjectClick(project)">
+          <div class="project-image" [class]="getProjectImageClass(project.id)">
+            <div class="image-placeholder">
+              <span>{{ project.image }}</span>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="project-category">{{ project.category }}</div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="project-tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    @if (filteredProjects.length === 0) {
+      <div class="no-projects">
+        <h3>No projects found</h3>
+        <p>No projects available for the selected category.</p>
+      </div>
+    }
+    
+    <div class="projects-cta">
+      <p>Interested in working together?</p>
+      <a (click)="scrollToSection('contact')" class="btn btn-primary">Let's Talk</a>
+    </div>
+  </div>
+</section>
