@@ -221,6 +221,10 @@
   font-weight: 500;
 }
 
+.projects-cta a{
+  cursor: pointer;
+}
+
 .btn {
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -247,29 +251,29 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .filter-btn {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .project-content {
     padding: 1.5rem;
   }
-  
+
   .project-tech {
     gap: 0.25rem;
   }
-  
+
   .tech-tag {
     font-size: 0.75rem;
     padding: 0.2rem 0.6rem;
   }
-  
+
   .project-links {
     flex-direction: column;
   }
